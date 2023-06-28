@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import lombok.Data;
+import org.springframework.boot.Banner.Mode;
 import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -73,6 +74,12 @@ public class BasicController {
 		model.addAttribute("param1", "data1");
 		model.addAttribute("param2", "data2");
 		return "basic/link";
+	}
+
+	@GetMapping("/literal")
+	public String literal(Model model){
+		model.addAttribute("data", "Spring!");
+		return "basic/literal";
 	}
 
 	@Data
