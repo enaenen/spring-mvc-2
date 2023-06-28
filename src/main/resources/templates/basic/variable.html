@@ -25,6 +25,7 @@
 </ul>
 <h1>지역 변수 - (th:with)</h1>
 <div th:with="first=${users[0]}">
+<!--  이 스코프 내에서만 사용 가능 -->
   <p>처음 사람의 이름은 <span th:text="${first.username}"></span> </p>
 </div>
 </body>
