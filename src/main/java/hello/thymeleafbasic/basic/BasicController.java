@@ -1,10 +1,13 @@
 package hello.thymeleafbasic.basic;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import lombok.Data;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,6 +60,12 @@ public class BasicController {
 		public String hello(String data){
 			return "Hello " + data;
 		}
+	}
+
+	@GetMapping("/date")
+	public String date(Model model){
+		model.addAttribute("localDateTime", LocalDateTime.now());
+		return "basic/date";
 	}
 
 	@Data
