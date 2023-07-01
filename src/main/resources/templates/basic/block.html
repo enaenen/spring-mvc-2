@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Block</title>
+</head>
+<body>
+<!-- div 태그를 두개씩 맞춰서 돌리기 => th:block -->
+<!-- user 블록당 each를 하나씩 -->
+<th:block th:each="user : ${users}">
+  <div>
+    사용자 이름1 <span th:text="${user.username}"></span>
+    사용자 나이1 <span th:text="${user.age}"></span>
+  </div>
+  <div>
+    요약 <span th:text="${user.username} + ' / ' + ${user.age}"></span>
+  </div>
+</th:block>
+</body>
+</html>
