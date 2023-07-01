@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!-- 자바스크립트 인라인 사용 전 -->
+<script>
+  const username = "[[${user.username}]]";
+  const age = [[${user.age}]];
+
+  //자바스크립트 내추럴 템플릿
+  const username2 = /*[[${user.username}]]*/ "test username";
+
+  //객체
+  const user = [[${user}]];
+//   User 객체의 toString 호출
+</script>
+
+<!-- -->
+
+<!-- 자바스크립트 인라인 사용 후 -->
+<!-- 타임리프가 자바스크립트와 호환되도록 처리-->
+<script th:inline="javascript">
+  const username = [[${user.username}]];
+  const age = [[${user.age}]];
+
+  //자바스크립트 내추럴 템플릿 => 변수 할당시 주석을 넣어주면, 렌더링이 될때 뒷부분을 지우고 주석 속의 값을 사용하게 해준다.
+  const username2 = /*[[${user.username}]]*/ "test username";
+
+  //객체
+  const user = [[${user}]];
+</script>
+</body>
+</html>
